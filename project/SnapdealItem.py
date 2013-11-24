@@ -5,23 +5,12 @@ Created on Nov 23, 2013
 '''
 from HtmlHelper import *
 from BeautifulSoup import BeautifulSoup
+from Item import *
 
-class SnapdealItem(object):
-    
-    title = ""
-    price = ""
-    item_url = ""
-    rating = ""
-    num_ratings = ""
-    htmlBeautifulSoup = ""
-    delivery_time = ""
+class SnapdealItem(Item):
     
     def __init__(self, item_url):
-        self.item_url = item_url
-    
-    def get_html(self):
-        html =  HtmlHelper.getHtml(self.item_url)
-        return html
+        super(SnapdealItem,self).__init__(item_url)
     
     def parseHtmlAndStoreData(self):
         htmlBeautifulSoup = BeautifulSoup(self.get_html())
